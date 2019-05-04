@@ -9,6 +9,8 @@ import UIKit
 
 class kisiselMessageCell: UITableViewCell {
 
+    @IBOutlet weak var profilImage: UIImageView!
+    @IBOutlet weak var messageText: UITextView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -16,7 +18,7 @@ class kisiselMessageCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        profilImage.setRounded()
         // Configure the view for the selected state
     }
 

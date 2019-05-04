@@ -6,24 +6,39 @@
 //
 
 import UIKit
-
+import Firebase
+import FirebaseAuth
 class unuttumVC: UIViewController {
 
+    @IBOutlet weak var mailText: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.barTintColor = UIColor .orange
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func unuttumButtonClicked(_ sender: Any)
+    {
+        Auth.auth().sendPasswordReset(withEmail: mailText.text!) { (error) in
+            if error != nil
+            {
+                
+                let alert = UIAlertController(title: "Hata", message: "mail adresiniz yanlis lutfen tekrar deneyiniz!", preferredStyle: UIAlertController.Style.alert)
+                let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+                alert.addAction(okButton)
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+            else
+            {
+                let alert = UIAlertController(title: "Basarili", message: "Mail adresininize sifirlama linki gonderdik.", preferredStyle: UIAlertController.Style.alert)
+                let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+                alert.addAction(okButton)
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+        }
+    
     }
-    */
-
 }

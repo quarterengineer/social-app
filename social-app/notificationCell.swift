@@ -9,8 +9,15 @@ import UIKit
 
 class notificationCell: UITableViewCell {
 
+    @IBOutlet weak var notificationText: UITextView!
+    @IBOutlet weak var userImage: UIImageView!
+
+    @IBOutlet weak var sImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        userImage.setRounded()
+        sImage.setRounded()
         // Initialization code
     }
 
